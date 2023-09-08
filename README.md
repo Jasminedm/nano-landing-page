@@ -2,9 +2,9 @@
 #### OneTen|Udacity
 ![Landing Page Gif](pageGif.gif)
 
-I made this project just for fun, it allows you to create nice and simple GitHub Readme files that you can copy/paste and use in your profile.
+This was a fun project that allowed me to practice responsiveness, active classes and building a dynamic navigation.
 
-Skills: VUE JS / REACT / JS / HTML / CSS
+Skills: HTML | CSS | JS
 
 
 
