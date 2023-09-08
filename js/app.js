@@ -33,8 +33,11 @@ let sections = document.querySelectorAll('section')
 // Add check if section is near top of viewport
 function topViewportCheck(element){
     const rect = element.getBoundingClientRect();
-    // checking if top of section is below top of viewport and iftop of section is within 200 pixels of the top of the viewport
-    return rect.top >= 0 && rect.top <= 200;
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    const middleOfElement = rect.top + (rect.height / 2);
+    
+    // Check if the middle of the section is within the viewport
+    return middleOfElement >= 0 && middleOfElement <= windowHeight;
 }
 // Looping through sections
 /**
@@ -81,11 +84,19 @@ function buildNav (){
 
 
 function setActive(){
+    // checking if item is active to prevent more than one item from active at once
+    let isActive = false; 
     sections.forEach(section => {
-        if(topViewportCheck(section)){
+        // adding and removing active class from both the section and its nav item
+        const link = document.querySelector(`a[href="#${section.id}"]`);
+        
+        if(topViewportCheck(section) && !isActive){
             section.classList.add('active');
+            link.classList.add('active');
+            isActive = true
         } else {
             section.classList.remove('active');
+            link.classList.remove('active')
         }
     });
 }
